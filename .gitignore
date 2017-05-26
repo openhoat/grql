@@ -1,0 +1,6 @@
+.idea
+*.log
+*.pid
+dist
+node_modules
+tmp

@@ -1,0 +1,12 @@
+{
+  "for more information, contact": "for more information, contact openhoat@gmail.com",
+  "Usage": "Usage",
+  "(empty array)": "(empty array)",
+  "configuration name": "configuration name",
+  "basic authentication user": "basic authentication user",
+  "basic authentication password": "basic authentication password",
+  "get or set query name": "get or set query name",
+  "persists options to file (%s)": "persists options to file (%s)",
+  "show result in pretty YAML format": "show result in pretty YAML format",
+  "graphql server base url": "graphql server base url"
+}

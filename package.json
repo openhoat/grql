@@ -1,0 +1,48 @@
+{
+  "name": "grql",
+  "version": "0.0.1",
+  "description": "GraphQL client command line",
+  "main": "lib/grql.js",
+  "bin": {
+    "grql": "./bin/grql"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "Olivier Penhoat <openhoat@gmail.com> (http://headwood.net/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openhoat/grql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/openhoat/grql/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/openhoat/grql/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "basic-auth-header": "^1.0.1",
+    "bluebird": "^3.5.0",
+    "chalk": "^1.1.3",
+    "graphql": "^0.9.6",
+    "lodash": "^4.17.4",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1",
+    "prettyjson": "^1.2.1",
+    "request": "^2.81.0",
+    "y18n": "^3.2.1",
+    "yamljs": "^0.2.10",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-nodejs": "^1.1.0"
+  }
+}

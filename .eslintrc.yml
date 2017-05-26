@@ -1,0 +1,33 @@
+env:
+  es6: true
+  node: true
+  mocha: true
+extends: ['eslint:recommended', 'nodejs']
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  no-console: off
+  linebreak-style: off
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
+      allowTemplateLiterals: true
+  semi:
+    - warn
+    - never
+  comma-dangle:
+    - error
+    - only-multiline
+  no-var: warn
+  object-shorthand: warn
+  prefer-arrow-callback: warn
+  prefer-spread: warn
+  arrow-parens: ["warn", "as-needed"]
+  arrow-body-style: ["warn", "as-needed"]
+  prefer-const: warn
