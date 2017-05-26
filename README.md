@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/grql.svg)](http://badge.fury.io/js/grql)
 
-<img src="http://graphql.org/img/logo.svg" width="100px" style="float: right">
+<a href="http://graphql.org/"><img src="http://graphql.org/img/logo.svg" width="100px" title="GraphQL"></a>
 
 ## GraphQL client command line
 
