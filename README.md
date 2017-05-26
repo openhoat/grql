@@ -67,7 +67,21 @@ $ grql --baseurl https://mysupergraphql.server/graphql "{ myquery(foo: "bar") }"
 ### Save own graphql server to a named configuration
 
 ```
-$ grql --baseurl https://mysupergraphql.server/graphql --conf mysuperserver "{ myquery(foo: "bar") }" --save
+$ grql --baseurl https://mysupergraphql.server/graphql \
+  --conf mysuperserver --save \
+  "{ myquery(foo: "bar") }"
+```
+
+### Save a query
+
+```
+$ grql --query myquery "{ myquery(foo: "bar") }" --save
+```
+
+Next, to replay the query :
+
+```
+$ grql --query myquery
 ```
 
 Enjoy!
