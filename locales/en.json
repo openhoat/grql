@@ -8,5 +8,6 @@
   "get or set query name": "get or set query name",
   "persists options to file (%s)": "persists options to file (%s)",
   "show result in pretty YAML format": "show result in pretty YAML format",
-  "graphql server base url": "graphql server base url"
+  "graphql server base url": "graphql server base url",
+  "Error: query '%s' not found": "Error: query '%s' not found"
 }

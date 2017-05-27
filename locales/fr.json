@@ -8,5 +8,6 @@
   "get or set query name": "nom de la requête à définir ou utiliser",
   "persists options to file (%s)": "savegarder les options dans le fichier (%s)",
   "show result in pretty YAML format": "montrer le résultat au format YAML",
-  "graphql server base url": "url de base du serveur graphql"
+  "graphql server base url": "url de base du serveur graphql",
+  "Error: query '%s' not found": "Erreur : requête '%s' non trouvée"
 }
