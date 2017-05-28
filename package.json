@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "chai": "^4.0.0",
+    "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-config-nodejs": "^1.1.0",
     "istanbul": "^0.4.5",
