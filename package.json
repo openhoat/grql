@@ -12,7 +12,11 @@
     "grql": "./bin/grql"
   },
   "scripts": {
-    "lint": "eslint ."
+    "clean": "rimraf dist/*",
+    "lint": "eslint .",
+    "test": "mocha",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- -- -R spec && cat dist/coverage/lcov.info | coveralls && rimraf dist/coverage"
   },
   "author": "Olivier Penhoat <openhoat@gmail.com> (http://headwood.net/)",
   "repository": {
@@ -45,7 +49,11 @@
     "yargs": "^8.0.1"
   },
   "devDependencies": {
+    "chai": "^4.0.0",
     "eslint": "^3.19.0",
-    "eslint-config-nodejs": "^1.1.0"
+    "eslint-config-nodejs": "^1.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.1"
   }
 }
