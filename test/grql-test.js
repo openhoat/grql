@@ -3,6 +3,7 @@ const expect = chai.expect
 const path = require('path')
 const fs = require('fs')
 const os = require('os')
+const YAML = require('yamljs')
 const Promise = require('bluebird')
 const pkg = require('../package')
 
@@ -78,6 +79,14 @@ describe('grql', function() {
       .then(result => {
         expect(result).to.have.property('stdout')
         const out = JSON.parse(result.stdout)
+        expect(out).to.eql({hello: 'world'})
+      })
+    )
+
+    it('should return hello in yaml format', () => grql('-y', '{ hello }')
+      .then(result => {
+        expect(result).to.have.property('stdout')
+        const out = YAML.parse(result.stdout)
         expect(out).to.eql({hello: 'world'})
       })
     )
