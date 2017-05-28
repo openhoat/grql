@@ -10,9 +10,7 @@
 Simple command line to query any GraphQL servers.
 
 - Sample default configuration with GraphQLHub server endpoint  
-- Supports basic auth
-- Supports fragments
-- Supports mutations
+- Supports basic auth, fragments and mutations
 
 ## Installation
 
