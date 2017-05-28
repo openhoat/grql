@@ -140,6 +140,22 @@ $ grql '{ giphy { random(tag:"superbike") { ...${gifInfo} } } }' -y
 
 ### Mutations
 
+Change my details with my contacts graphql server :
+
+```
+$ cat << EOM | grql -e contacts -m
+{
+  patchMe(input: {firstName: "John", lastName: "Doe"}) {
+    id
+    firstName
+    lastName
+    email
+    username
+  }
+}
+EOM
+```
+
 ### Switches
 
 - verbose : show more details
