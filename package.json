@@ -1,6 +1,6 @@
 {
   "name": "grql",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "GraphQL client command line",
   "keywords": [
     "graphql",
