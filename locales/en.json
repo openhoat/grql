@@ -19,5 +19,15 @@
   "Error : missing argument": "Error : missing argument",
   "set a variable used in query (format : key=value)": "set a variable used in query (format : key=value)",
   "create a fragment": "create a fragment",
-  "send graphql mutation": "send graphql mutation"
+  "send graphql mutation": "send graphql mutation",
+  "command": "command",
+  "data": "data",
+  "make a graphql query": "make a graphql query",
+  "empty": "empty",
+  "using environment %s": "using environment %s",
+  "environment details :": "environment details :",
+  "request headers :": "request headers :",
+  "data :": "data :",
+  "variables :": "variables :",
+  "use or set query alias": "use or set query alias"
 }

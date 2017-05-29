@@ -33,7 +33,7 @@ $ grql --help
 Example of query : get a Giffy image from GraphQLHub
 
 ```
-$ grql '{ giphy { random(tag:"superbike") { url } } }'
+$ grql query '{ giphy { random(tag:"superbike") { url } } }'
 ```
 
 Result :
@@ -51,7 +51,7 @@ Result :
 Use YAML output format :
 
 ```
-$ grql '{ giphy { random(tag:"superbike") { url } } }' -y
+$ grql query '{ giphy { random(tag:"superbike") { url } } }' -y
 ```
 
 Result :
@@ -75,7 +75,7 @@ environnements :
 Specify your own graphql server :
 
 ```
-$ grql --baseurl https://mysupergraphql.server/graphql "{ myquery(foo: "bar") }"
+$ grql --baseurl https://mysupergraphql.server/graphql query "{ myquery(foo: "bar") }"
 ```
 
 Save own graphql server to a named configuration :
@@ -83,19 +83,19 @@ Save own graphql server to a named configuration :
 ```
 $ grql --baseurl https://mysupergraphql.server/graphql \
   --conf mysuperserver --save \
-  '{ myquery(foo: "bar") }'
+  query '{ myquery(foo: "bar") }'
 ```
 
 Save a query :
 
 ```
-$ grql --query myquery '{ myquery(foo: "bar") }' --save
+$ grql --alias myquery query '{ myquery(foo: "bar") }' --save
 ```
 
 Next, to replay the query :
 
 ```
-$ grql --query myquery
+$ grql --alias myquery query
 ```
 
 ### Query
@@ -103,13 +103,13 @@ $ grql --query myquery
 The query content is passed either by command argument :
 
 ```
-$ grql '{ contact { username: "jdoe"} }'
+$ grql query '{ contact { username: "jdoe"} }'
 ```
 
 or by stdin :
 
 ```
-$ echo '{ contact { username: "jdoe"} }' | grql 
+$ echo '{ contact { username: "jdoe"} }' | grql query 
 ```
 
 ### Fragments
@@ -117,7 +117,7 @@ $ echo '{ contact { username: "jdoe"} }' | grql
 Save a new fragment :
 
 ```
-$ cat << EOM | grql -f gifInfo -s
+$ cat << EOM | grql fragment gifInfo -s
 fragment on GiphyGIFData {
   id
   url
@@ -133,7 +133,7 @@ EOM
 Use it in a query :
 
 ```
-$ grql '{ giphy { random(tag:"superbike") { ...${gifInfo} } } }' -y
+$ grql query '{ giphy { random(tag:"superbike") { ...${gifInfo} } } }' -y
 ```
 
 ### Mutations
@@ -141,7 +141,7 @@ $ grql '{ giphy { random(tag:"superbike") { ...${gifInfo} } } }' -y
 Change my details with my contacts graphql server :
 
 ```
-$ cat << EOM | grql -e contacts -m
+$ cat << EOM | grql -e contacts mutate
 {
   patchMe(input: {firstName: "John", lastName: "Doe"}) {
     id
@@ -160,10 +160,9 @@ EOM
 - dryrun : does not finally execute the query
 - env : show current environment or select the specified environment
 - nocolor : disable color mode
-- query : select a query to save or play
+- alias : select an alias to save or play
 - save : save options to current environment
 - yaml : enable YAML output format
-- mutation : execute a mutation instead of a query
 - var : inject a variable (format key=value)
 
 Enjoy!

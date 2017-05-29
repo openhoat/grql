@@ -6,8 +6,8 @@
   "basic authentication user": "utilisateur de l'authentification basique",
   "basic authentication password": "mot de passe de l'authentification basique",
   "get or set query name": "nom de la requête à définir ou utiliser",
-  "persists options to file (%s)": "savegarder les options dans le fichier (%s)",
-  "show result in pretty YAML format": "montrer le résultat au format YAML",
+  "save options to file (%s)": "savegarde les options dans le fichier (%s)",
+  "show result in pretty YAML format": "montre le résultat au format YAML",
   "graphql server base url": "url de base du serveur graphql",
   "Error: query '%s' not found": "Erreur : requête '%s' non trouvée",
   "options successfully saved": "options enregistrées avec succès",
@@ -19,5 +19,15 @@
   "Error : missing argument": "Erreur : argument manquant",
   "set a variable used in query (format : key=value)": "définit une variable à utiliser dans la requête (format : key=value)",
   "create a fragment": "crée un fragment",
-  "send graphql mutation": "envoie une mutation graphql"
+  "send graphql mutation": "envoie une mutation graphql",
+  "command": "commande",
+  "data": "données",
+  "make a graphql query": "joue une requête graphql",
+  "empty": "vide",
+  "using environment %s": "utilisation de l'environment %s",
+  "environment details :": "détail de l'environnement :",
+  "request headers :": "entêtes de requête :",
+  "data :": "données :",
+  "variables :": "variables :",
+  "use or set query alias": "utilise ou définit un alias de requête"
 }

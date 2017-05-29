@@ -63,7 +63,7 @@ describe('grql', function() {
 
     after(() => sampleServer.stop())
 
-    it('should return schema', () => grql('--nocolor', '--schema')
+    it('should return schema', () => grql('--nocolor', 'schema')
       .then(result => {
         expect(result).to.have.property('stdout')
         const out = JSON.parse(result.stdout)
@@ -76,7 +76,7 @@ describe('grql', function() {
       })
     )
 
-    it('should return hello', () => grql('--nocolor', '{ hello }')
+    it('should return hello', () => grql('--nocolor', 'query', '{ hello }')
       .then(result => {
         expect(result).to.have.property('stdout')
         const out = JSON.parse(result.stdout)
@@ -84,7 +84,7 @@ describe('grql', function() {
       })
     )
 
-    it('should return hello in yaml format', () => grql('--nocolor', '-y', '{ hello }')
+    it('should return hello in yaml format', () => grql('--nocolor', '-y', 'query', '{ hello }')
       .then(result => {
         expect(result).to.have.property('stdout')
         const out = YAML.parse(result.stdout)
