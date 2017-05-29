@@ -36,7 +36,7 @@ describe('grql', function() {
       },
       err => {
         expect(err).to.be.an('error')
-        expect(err).to.have.property('message', grql.__('Error : missing argument'))
+        expect(err).to.have.property('message', grql.__('Error : missing argument (try --help)'))
       }
     )
   )
