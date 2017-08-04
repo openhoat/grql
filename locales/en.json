@@ -1,5 +1,6 @@
 {
   "(empty array)": "(empty array)",
+  "Error : alias missing": "Error : alias missing",
   "Error : missing argument (try --help)": "Error : missing argument (try --help)",
   "Error: query '%s' not found": "Error: query '%s' not found",
   "Usage": "Usage",

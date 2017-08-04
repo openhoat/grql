@@ -4,13 +4,10 @@ const path = require('path')
 const fs = require('fs')
 const os = require('os')
 const YAML = require('yamljs')
-const Promise = require('bluebird')
 const pkg = require('../package')
 
-describe('grql', function() {
+describe('grql', () => {
   let config, grql, sampleServer
-
-  this.timeout(10000)
 
   before(() => {
     process.env['NODE_ENV'] = 'test'
@@ -18,55 +15,63 @@ describe('grql', function() {
     config.configFile = path.join(os.tmpdir(), `.${pkg.name}.yml`)
     grql = require('../lib/grql')
     sampleServer = require('./sample-server')
+    process.stdin.isTTY = true
   })
 
-  after(() => Promise.resolve()
-    .then(() => {
-      if (!config.configFile) {
-        return
-      }
-      return Promise.fromCallback(cb => fs.unlink(config.configFile, cb))
-    })
-  )
+  after(() => {
+    if (!config.configFile) {
+      return
+    }
+    fs.unlinkSync(config.configFile)
+  })
 
-  it('should return an error if no argument', () => grql()
-    .then(
-      result => {
-        throw new Error('should no return a result')
-      },
-      err => {
+  describe('exec', () => {
+
+    it('should return an error if no argument', async () => {
+      try {
+        await grql.exec()
+        throw new Error('should not return a result')
+      } catch (err) {
         expect(err).to.be.an('error')
         expect(err).to.have.property('message', grql.__('Error : missing argument (try --help)'))
       }
-    )
-  )
-
-  it('should show help', () => grql('--nocolor', '--help')
-    .then(result => {
-      expect(result).to.have.property('stderr').that.is.a('string')
     })
-  )
 
-  describe('sample server', () => {
+    it('should show help', async () => {
+      const stdout = {}
+      const stderr = {}
+      await grql.exec({ stdout, stderr, args: ['--nocolor', '--help'] })
+      expect(stderr).to.have.property('data').that.is.a('string')
+    })
 
-    before(() => sampleServer.start()
-      .then(() => {
+    describe('sample server', () => {
+      let stdout
+      let stderr
+
+      before(async () => {
+        await sampleServer.start()
         const port = sampleServer.getPort()
-        return grql(
-          '--nocolor',
-          '-e', 'test',
-          '-b', `http://localhost:${port}/graphql`,
-          '-s'
-        )
+        await grql.exec({
+          args: [
+            '--nocolor',
+            '-e', 'test',
+            '-b', `http://localhost:${port}/graphql`,
+            '-s'
+          ]
+        })
       })
-    )
 
-    after(() => sampleServer.stop())
+      after(() => sampleServer.stop())
 
-    it('should return schema', () => grql('--nocolor', 'schema')
-      .then(result => {
-        expect(result).to.have.property('stdout')
-        const out = JSON.parse(result.stdout)
+      beforeEach(() => {
+        stdout = {}
+        stderr = {}
+      })
+
+      it('should return schema', async () => {
+        await grql.exec({ stdout, stderr, args: ['--nocolor', 'schema'] })
+        expect(stdout).to.have.property('data').that.is.a('string')
+        const out = JSON.parse(stdout.data)
         expect(Object.keys(out)).to.eql(['queryType',
           'mutationType',
           'subscriptionType',
@@ -74,23 +79,22 @@ describe('grql', function() {
           'directives'
         ])
       })
-    )
 
-    it('should return hello', () => grql('--nocolor', 'query', '{ hello }')
-      .then(result => {
-        expect(result).to.have.property('stdout')
-        const out = JSON.parse(result.stdout)
-        expect(out).to.eql({hello: 'world'})
+      it('should return hello', async () => {
+        await grql.exec({ stdout, stderr, args: ['--nocolor', 'query', '{ hello }'] })
+        expect(stdout).to.have.property('data').that.is.a('string')
+        const out = JSON.parse(stdout.data)
+        expect(out).to.eql({ hello: 'world' })
       })
-    )
 
-    it('should return hello in yaml format', () => grql('--nocolor', '-y', 'query', '{ hello }')
-      .then(result => {
-        expect(result).to.have.property('stdout')
-        const out = YAML.parse(result.stdout)
-        expect(out).to.eql({hello: 'world'})
+      it('should return hello in yaml format', async () => {
+        await grql.exec({ stdout, stderr, args: ['--nocolor', '-y', 'query', '{ hello }'] })
+        expect(stdout).to.have.property('data').that.is.a('string')
+        const out = YAML.parse(stdout.data)
+        expect(out).to.eql({ hello: 'world' })
       })
-    )
+
+    })
 
   })
 

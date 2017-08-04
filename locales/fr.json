@@ -1,5 +1,6 @@
 {
   "(empty array)": "(liste vide)",
+  "Error : alias missing": "Erreur : alias manquant",
   "Error : missing argument (try --help)": "Erreur : argument manquant (essayer --help)",
   "Error: query '%s' not found": "Erreur : requête '%s' non trouvée",
   "Usage": "Utilisation",
