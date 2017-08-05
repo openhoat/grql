@@ -26,6 +26,7 @@
   "bugs": {
     "url": "https://github.com/openhoat/grql/issues"
   },
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
@@ -35,7 +36,6 @@
   "engines": {
     "node": ">=8"
   },
-  "license": "MIT",
   "dependencies": {
     "basic-auth-header": "^1.0.1",
     "bluebird": "^3.5.0",
@@ -56,8 +56,9 @@
     "eslint-config-nodejs": "^1.1.0",
     "express": "^4.15.3",
     "express-graphql": "^0.6.6",
-    "istanbul": "^0.4.5",
+    "istanbul": "1.1.0-alpha.1",
     "mocha": "^3.4.2",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "shortid": "^2.2.8"
   }
 }
