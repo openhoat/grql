@@ -17,6 +17,12 @@ Simple command line to query any GraphQL servers.
 ```
 $ npm install grql -g
 ```
+
+Install a bundled version to `$HOME/bin` :
+
+```
+$ npm run install
+```
  
 ### Configuration
 
