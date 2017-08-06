@@ -17,7 +17,7 @@
     "test": "mocha",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- -- -R spec && cat dist/coverage/lcov.info | coveralls && rimraf dist/coverage",
-    "install": "pkg -o ~/bin/grql lib/cmd.js"
+    "installbin": "pkg -o ~/bin/grql lib/cmd.js"
   },
   "author": "Olivier Penhoat <openhoat@gmail.com> (http://headwood.net/)",
   "repository": {

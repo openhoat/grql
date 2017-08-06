@@ -21,7 +21,7 @@ $ npm install grql -g
 Install a bundled version to `$HOME/bin` :
 
 ```
-$ npm run install
+$ npm run installbin
 ```
  
 ### Configuration
